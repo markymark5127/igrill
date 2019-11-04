@@ -1,6 +1,6 @@
-My Notes:
+# My Notes:
 
-#I- check
+## I- check
 Get encryption key from decompiling teh android app
     iGrill 
     encryption_key = [-19, 94, 48, -114, -117, -52, -111, 19, 48, 108, -44, 104, 84, 21, 62, -35]
@@ -8,13 +8,13 @@ Get encryption key from decompiling teh android app
     encryption_key = [-33, 51, -32, -119, -12, 72, 78, 115, -110, -44, -49, -71, 70, -25, -123, -74]
 
 
-#II - check
+## II - check
 Be careful on the bluez version 5.29
 
-#III - check
+## III - check
 Use bluetoothctl trust command on iGrill device.
 
-#IV - install components
+## IV - install components
 On a fresh Raspberry Pi Install, I performed the following to get this code to work - Minus the database portion.
 
 Install bluez using these instructions. Install version 5.29 instead of the version listed.
@@ -40,7 +40,7 @@ e. sudo python setup.py install
 
 Note: If you try to install bluepy0.9.11 before installing bluez, the install will error out.
 
-#V - install components
+## V - install components
 apt-get install python-pip libglib2.0-dev
 pip install bluepy
 apt-get install python-crypto
@@ -48,7 +48,7 @@ pip install influxdb
 apt-get install bluez-hcidump
 
 
-#VI - connects and prints characteristics of igrillv2
+## VI - connects and prints characteristics of igrillv2
 import bluepy.btle as btle
 import random
 
@@ -71,8 +71,8 @@ challenge = str(bytearray([(random.randint(0, 255)) for i in range(8)] + [0] * 8
 app_uuid = igrill.getCharacteristics(uuid="64ac0002-4a4b-4b58-9f37-94d3c52ffdf7")[0]
 app_uuid.write(challenge, True)
 
-#VII - specific issues a lot of information
+## VII - specific issues a lot of information
 https://github.com/kvantetore/igrill/issues/4
 
-#VIII - different fork
+## III - different fork
 https://github.com/bjoernhoefer/igrill
