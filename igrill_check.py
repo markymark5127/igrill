@@ -9,7 +9,7 @@ CONFIG_PATH = '/home/pi/.datadog-agent/conf.d/igrill.yaml'
 class IGrillCheck(AgentCheck):
 
     def read_sensor_data(self):
-        with open(DATA_FILE, 'a+') as f:
+        with open(DATA_FILE, 'r') as f:
             data = json.loads(f.read())
         return data
 
