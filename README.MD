@@ -74,5 +74,5 @@ app_uuid.write(challenge, True)
 ## VII - specific issues a lot of information
 https://github.com/kvantetore/igrill/issues/4
 
-## III - different fork
+## VIII - different fork
 https://github.com/bjoernhoefer/igrill
