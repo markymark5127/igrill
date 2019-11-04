@@ -1,11 +1,11 @@
 # My Notes:
 
 ## I- check
-Get encryption key from decompiling teh android app \n
-\t iGrill 
-\t encryption_key = [-19, 94, 48, -114, -117, -52, -111, 19, 48, 108, -44, 104, 84, 21, 62, -35]
-\t iGrill v2
-\t encryption_key = [-33, 51, -32, -119, -12, 72, 78, 115, -110, -44, -49, -71, 70, -25, -123, -74]
+Get encryption key from decompiling teh android app  
+iGrill  
+encryption_key = [-19, 94, 48, -114, -117, -52, -111, 19, 48, 108, -44, 104, 84, 21, 62, -35]  
+iGrill v2
+encryption_key = [-33, 51, -32, -119, -12, 72, 78, 115, -110, -44, -49, -71, 70, -25, -123, -74]  
 
 
 ## II - check
