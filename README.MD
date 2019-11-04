@@ -1,45 +1,45 @@
 # My Notes:
 
-## I- check
+## I
 Get encryption key from decompiling teh android app  
-iGrill  
-encryption_key = [-19, 94, 48, -114, -117, -52, -111, 19, 48, 108, -44, 104, 84, 21, 62, -35]  
-iGrill v2
-encryption_key = [-33, 51, -32, -119, -12, 72, 78, 115, -110, -44, -49, -71, 70, -25, -123, -74]  
+    iGrill:  
+    encryption_key = [-19, 94, 48, -114, -117, -52, -111, 19, 48, 108, -44, 104, 84, 21, 62, -35]  
+    iGrill v2:
+    encryption_key = [-33, 51, -32, -119, -12, 72, 78, 115, -110, -44, -49, -71, 70, -25, -123, -74]  
 
 
-## II - check
+## II
 Be careful on the bluez version 5.29
 
-## III - check
+## III
 Use bluetoothctl trust command on iGrill device.
 
 ## IV - install components
-On a fresh Raspberry Pi Install, I performed the following to get this code to work - Minus the database portion.
-
-Install bluez using these instructions. Install version 5.29 instead of the version listed.
-
-https://learn.adafruit.com/install-bluez-on-the-raspberry-pi/installation
-a. Download - wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.29.tar.xz
-b. Extract - tar xvf bluez-5.29.tar.xz
-c. Browse - cd bluez-5.29
-d. sudo apt-get update
-e. sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev
-f. ./configure
-g. make
-h. sudo make install
-i. bluetoothctl -v
-
-After bluez is installed, source installed bluepy0.9.11.
-
-a. Download - wget https://github.com/IanHarvey/bluepy/tarball/v/0.9.11.tar.xz
-b. Extract - tar xvf 0.9.11
-c. Browse - cd 0.9.11
-d. sudo python setup.py build
-e. sudo python setup.py install
-
-Note: If you try to install bluepy0.9.11 before installing bluez, the install will error out.
-
+On a fresh Raspberry Pi Install, I performed the following to get this code to work - Minus the database portion.  
+  
+Install bluez using these instructions. Install version 5.29 instead of the version listed.  
+  
+https://learn.adafruit.com/install-bluez-on-the-raspberry-pi/installation  
+a. Download - wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.29.tar.xz  
+b. Extract - tar xvf bluez-5.29.tar.xz  
+c. Browse - cd bluez-5.29  
+d. sudo apt-get update  
+e. sudo apt-get install -y libusb-dev libdbus-1-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev  
+f. ./configure  
+g. make  
+h. sudo make install  
+i. bluetoothctl -v  
+  
+After bluez is installed, source installed bluepy0.9.11.  
+  
+a. Download - wget https://github.com/IanHarvey/bluepy/tarball/v/0.9.11.tar.xz  
+b. Extract - tar xvf 0.9.11  
+c. Browse - cd 0.9.11  
+d. sudo python setup.py build  
+e. sudo python setup.py install  
+  
+Note: If you try to install bluepy0.9.11 before installing bluez, the install will error out.  
+  
 ## V - install components
 apt-get install python-pip libglib2.0-dev
 pip install bluepy
