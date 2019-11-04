@@ -3,7 +3,7 @@ import time
 
 from igrill import IGrillMiniPeripheral
 
-ADDRESS = 'D4:81:CA:05:53:5E'
+ADDRESS = 'D4:81:CA:30:0F:D8'
 DATA_FILE = '/tmp/igrill.json'
 INTERVAL = 15
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
         }
 
         print 'Writing sensor data: {}'.format(sensor_data)
-        with open(DATA_FILE, 'w') as f:
+        with open(DATA_FILE, 'w+') as f:
             f.write(json.dumps(sensor_data))
 
         time.sleep(INTERVAL)
