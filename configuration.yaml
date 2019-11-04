@@ -1,0 +1,96 @@
+          - platform: mqtt
+            state_topic: "bbq/grill/probe1"
+            name: "Probe 1"
+            qos: 0
+            unit_of_measurement: "°F"
+          - platform: mqtt
+            state_topic: "bbq/grill/probe2"
+            name: "Probe 2"
+            qos: 0
+            unit_of_measurement: "°F"
+          - platform: mqtt
+            state_topic: "bbq/grill/probe3"
+            name: "Probe 3"
+            qos: 0
+            unit_of_measurement: "°F"
+          - platform: mqtt
+            state_topic: "bbq/grill/probe4"
+            name: "Probe 4"
+            qos: 0
+            unit_of_measurement: "°F"
+          - platform: mqtt
+            state_topic: "bbq/grill/battery"
+            name: "igrill battery"
+            qos: 0
+            unit_of_measurement: "%"
+    - platform: template
+        sensors:
+          grill_alert_temp:
+            value_template:
+              '{% if (states.sensor.probe_4.state | int) < (states.input_number.grill_alert_low.state | int) or (states.sensor.probe_4.state | int)  > (states.input_number.grill_alert_high.state | int) %}
+                Alert
+              {% else %}
+                Normal
+              {% endif %}'
+            friendly_name: Grill Temp Alert
+      - platform: template
+        sensors:
+          target_alert_temp_probe_1:
+            value_template:
+              '{% if (states.sensor.probe_1.state | int) >= (states.input_number.grill_probe_1_target.state | int) %}
+                Alert
+              {% else %}
+                Normal
+              {% endif %}'
+            friendly_name: Probe 1 Target Alert
+      - platform: template
+        sensors:
+          target_alert_temp_probe_2:
+            value_template:
+              '{% if (states.sensor.probe_2.state | int) >= (states.input_number.grill_probe_2_target.state | int) %}
+                Alert
+              {% else %}
+                Normal
+              {% endif %}'
+            friendly_name: Probe 2 Target Alert
+    - platform: template
+        sensors:
+          target_alert_temp_probe_3:
+            value_template:
+              '{% if (states.sensor.probe_3.state | int) >= (states.input_number.grill_probe_3_target.state | int) %}
+                Alert
+              {% else %}
+                Normal
+              {% endif %}'
+            friendly_name: Probe 3 Target Alert
+    input_number:
+        grill_alert_low:
+        name: Grill Low Temp
+        initial: 150
+        min: 100
+        max: 500
+        step: 5
+      grill_alert_high:
+        name: Grill High Temp
+        initial: 340
+        min: 100
+        max: 500
+        step: 5
+      grill_probe_1_target:
+        name: Probe 1 Target Temp
+        initial: 160
+        min: 60
+        max: 250
+        step: 1
+      grill_probe_2_target:
+        name: Probe 2 Target Temp
+        initial: 160
+        min: 60
+        max: 250
+        step: 1
+      grill_probe_3_target:
+        name: Probe 3 Target Temp
+        initial: 160
+        min: 60
+        max: 250
+        step: 1
